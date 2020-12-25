@@ -23,3 +23,10 @@ make install
 ```
 This will install testcases to `/opt/ltp`
 
+---
+In regard to riscv64-nommu-uClibc-toolchain, you have to deal with this stuff:<br>
+- `pthread.h`, `pthread_*`,`fork()`;
+- `FILTER_OUT_MAKE_TARGETS` is usefull for removing unused modules;
+- add `LDFLAGS += -Wl,-elf2flt=-r` to compile BFLT executable;
+- OR just use my [Prebuilt](https://cloud.tsinghua.edu.cn/d/216d048d297444ee96e4/files/?p=%2Fk210-uclibc-testcases.tgz)
+
